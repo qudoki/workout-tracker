@@ -22,7 +22,7 @@ app.use(express.static("public"));
 
 const databaseUrl = "workouts_db";
 const collections = ["workouts"];
-const db = mongoose.connect(
+mongoose.connect(
 	process.env.MONGODB_URI || "mongodb://localhost/workouts_db",
 	{
         useNewUrlParser: true,
