@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 const databaseUrl = "workouts_db";
 const collections = ["workouts"];
-const db = mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/custommethoddb", {
+const db = mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts", {
     useNewUrlParser: true,
     useFindAndModify: false }
 );
@@ -34,10 +34,11 @@ app.get("/", (req, res) => {
 });
 // GET exercise
 app.get("/exercise", (req, res) => {
-    res.sendFile(path.join(__dirname, "/exercise.html"));
+    res.sendFile(path.join(__dirname, "/public/exercise.html"));
 });
 
 app.use(require("./routes/api.js"));
+app.use(require("./routes/view.js"));
 
 app.listen(PORT, () => {
 	console.log(`App running on port ${PORT}!`);
