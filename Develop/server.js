@@ -22,23 +22,28 @@ app.use(express.static("public"));
 
 const databaseUrl = "workouts_db";
 const collections = ["workouts"];
-const db = mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts", {
-    useNewUrlParser: true,
-    useFindAndModify: false }
+const db = mongoose.connect(
+	process.env.MONGODB_URI || "mongodb://localhost/workouts_db",
+	{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,    
+		useFindAndModify: false,
+	}
 );
 
 app.get("/", (req, res) => {
-    res.send(index.html);
+	res.send(index.html);
 });
 
 // Routes
 // GET api/workouts
 app.get("/", (req, res) => {
-    res.send(index.html);
+	res.send(index.html);
 });
 // GET exercise
 app.get("/exercise", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/exercise.html"));
+	res.sendFile(path.join(__dirname, "/public/exercise.html"));
 });
 
 app.listen(PORT, () => {
