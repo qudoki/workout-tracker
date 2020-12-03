@@ -47,6 +47,11 @@ app.get("/exercise", (req, res) => {
 	res.sendFile(path.join(__dirname, "/public/exercise.html"));
 });
 
+// GET exercise
+app.get("/stats", (req, res) => {
+	res.sendFile(path.join(__dirname, "/public/stats.html"));
+});
+
 app.listen(process.env.PORT || 3000, () => {
 	console.log(`App running on port ${PORT}!`);
 });
