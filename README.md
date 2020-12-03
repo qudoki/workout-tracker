@@ -4,7 +4,7 @@
  - [Heroku App](https://fast-anchorage-21924.herokuapp.com/)
 
 ### Description: 
-This application allows users to build new or upon existing workouts by adding exercises in a web application. Users can view, create and track daily workouts. They can log multiple exercises in a workout on a given day. They can also track the name, type, weight, sets, reps, and duration of exercises. If the exercise is a cardio exercise, they can track the distance traveled. Technologies include MongoDB, Mongoose, node.js, and route handling is implemented through Express. The application is deployed on Heroku.
+This application allows users to build new or upon existing workouts by adding exercises in a web application. Users can view, create and track daily workouts. They can log multiple exercises in a workout on a given day. They can also track the name, type, weight, sets, reps, and duration of exercises. If the exercise is a cardio exercise, they can track the distance traveled. Technologies include MongoDB, Mongoose, node.js, and route handling is implemented through Express. The application is deployed on Heroku and MongoDB Atlas.
 
 
 # Table of Contents
