@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-// GET api/workouts
+// GET api/workouts -- not sure if this one is right !!!!
 app.get("/", (req, res) => {
 	res.send(index.html);
 });
