@@ -9,7 +9,8 @@ const app = express();
 
 // Routes
 app.use(require("./routes/api.js"));
-app.use(require("./routes/view.js"));
+// !!! this below doesn't work and leads view html routes to routes/public/exercise.html how to fix??
+// app.use(require("./routes/view.js"));
 
 // Logging
 app.use(logger("dev"));
@@ -46,6 +47,6 @@ app.get("/exercise", (req, res) => {
 	res.sendFile(path.join(__dirname, "/public/exercise.html"));
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log(`App running on port ${PORT}!`);
 });
