@@ -1,7 +1,8 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/workout", {
+//12.2 changed the below from workout to workouts_db
+mongoose.connect("mongodb://localhost/workouts_db", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
