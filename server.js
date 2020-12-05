@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-const bodyParser = require("body-parser");
+const mongojs = require("mongojs");
+const db = require("./models");
+// const bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 3000;
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Routes
 app.use(require("./routes/api.js"));
@@ -32,10 +34,10 @@ mongoose.connect(
 	}
 );
 
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false}));
+// app.use(bodyParser.json());
 app.get("*", function(req, res) {
-	res.sendFile(path.join(__dirname, "./public/index.html"))
+	res.sendFile(path.join(__dirname, "/public/index.html"))
 })
 
 // Routes
