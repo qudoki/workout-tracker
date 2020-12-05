@@ -9,8 +9,7 @@ const app = express();
 
 // Routes
 app.use(require("./routes/api.js"));
-// !!! this below doesn't work and leads view html routes to routes/public/exercise.html how to fix??
-// app.use(require("./routes/view.js"));
+app.use(require("./routes/view.js"));
 
 // Logging
 app.use(logger("dev"));
@@ -33,24 +32,20 @@ mongoose.connect(
 	}
 );
 
-app.get("/", (req, res) => {
-	res.send(index.html);
-});
-
 // Routes
 // GET api/workouts -- not sure if this one is right !!!!
-app.get("/", (req, res) => {
-	res.send(index.html);
-});
-// GET exercise
-app.get("/exercise", (req, res) => {
-	res.sendFile(path.join(__dirname, "/public/exercise.html"));
-});
+// app.get("/", (req, res) => {
+// 	res.send(index.html);
+// });
+// // GET exercise
+// app.get("/exercise", (req, res) => {
+// 	res.sendFile(path.join(__dirname, "/public/exercise.html"));
+// });
 
-// GET exercise
-app.get("/stats", (req, res) => {
-	res.sendFile(path.join(__dirname, "/public/stats.html"));
-});
+// // GET exercise
+// app.get("/stats", (req, res) => {
+// 	res.sendFile(path.join(__dirname, "/public/stats.html"));
+// });
 
 app.listen(process.env.PORT || 3000, () => {
 	console.log(`App running on port ${PORT}!`);
