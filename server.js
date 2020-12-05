@@ -2,9 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 3000;
-
 const app = express();
 
 // Routes
@@ -31,6 +31,12 @@ mongoose.connect(
 		useFindAndModify: false,
 	}
 );
+
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+app.get("*", function(req, res) {
+	res.sendFile(path.join(__dirname, "./public/index.html"))
+})
 
 // Routes
 // GET api/workouts -- not sure if this one is right !!!!
