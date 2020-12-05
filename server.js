@@ -4,14 +4,8 @@ const logger = require("morgan");
 const path = require("path");
 const mongojs = require("mongojs");
 const db = require("./models");
-// const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Routes
-app.use(require("./routes/api.js"));
-app.use(require("./routes/view.js"));
 
 // Logging
 app.use(logger("dev"));
@@ -24,8 +18,16 @@ app.use(express.static("public"));
 
 const databaseUrl = "workouts_db";
 const collections = ["workouts"];
+
+const PORT = process.env.PORT || 3000;
+
+// Routes
+app.use(require("./routes/api.js"));
+app.use(require("./routes/view.js"));
+
 mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/workouts_db",
+	//changing back from workouts_db to workout
+	process.env.MONGODB_URI || "mongodb://localhost/workout",
 	{
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -33,12 +35,6 @@ mongoose.connect(
 		useFindAndModify: false,
 	}
 );
-
-// app.use(bodyParser.urlencoded({ extended: false}));
-// app.use(bodyParser.json());
-app.get("*", function(req, res) {
-	res.sendFile(path.join(__dirname, "/public/index.html"))
-})
 
 // Routes
 // GET api/workouts -- not sure if this one is right !!!!
