@@ -30,6 +30,8 @@ This application allows users to build new or upon existing workouts by adding e
 ![ScreenShot](screenshots/main.png)
 #### Tracking Workouts
 ![ScreenShot](screenshots/track.png)
+#### Charts
+![ScreenShot](screenshots/charts.png)
 
 ## Contributing:
 - In most cases, please refer to this document: [Contributor Covenant](https://www.contributor-covenant.org/) 
